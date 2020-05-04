@@ -13,3 +13,7 @@ https://stackoverflow.com/questions/10167534/how-to-find-out-what-type-of-a-mat-
 https://stackoverflow.com/questions/25642532/opencv-pointx-y-represent-column-row-or-row-column
 https://stackoverflow.com/questions/21613246/what-is-the-structure-of-point2f-in-opencv
 https://stackoverflow.com/questions/42802294/c-opencv-iterate-through-pixels-in-a-mat-which-is-roi-of-another-mat
+
+## bar_code_reader
+https://stackoverflow.com/questions/2611764/can-i-use-a-binary-literal-in-c-or-c
+https://stackoverflow.com/questions/49341560/extract-sub-image-from-image-using-opencv-and-c

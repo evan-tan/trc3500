@@ -10,3 +10,7 @@ target_link_libraries(tuning ${OpenCV_LIBS})
 include_directories (include src) 
 add_executable (blob_statistics src/blob_statistics.cpp) 
 target_link_libraries(blob_statistics ${OpenCV_LIBS}) 
+
+include_directories (include src) 
+add_executable (bar_code_reader src/bar_code_reader.cpp) 
+target_link_libraries(bar_code_reader ${OpenCV_LIBS}) 

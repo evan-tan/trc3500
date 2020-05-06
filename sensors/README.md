@@ -3,6 +3,7 @@ Currently contains code for blob statistics.
 
 # How to use:
 In sensors/build run `cmake ..` then `make`.
+Then you can run either executable which is in the same folder
 
 # Resources used
 ## blob_statistics
@@ -17,3 +18,4 @@ https://stackoverflow.com/questions/42802294/c-opencv-iterate-through-pixels-in-
 ## bar_code_reader
 https://stackoverflow.com/questions/2611764/can-i-use-a-binary-literal-in-c-or-c
 https://stackoverflow.com/questions/49341560/extract-sub-image-from-image-using-opencv-and-c
+https://stackoverflow.com/questions/1112531/what-is-the-best-way-to-use-two-keys-with-a-stdmap

@@ -5,24 +5,27 @@
 
 namespace BarCodeReader {
 
-std::string parity_check(std::string some_str)
+char parity_check(std::string &some_str)
 {
     int count_ones;
-    for (int i = 0; i < some_str.size() - 1; i++)
+    if (some_str.size() > 0)
     {
-        if (some_str.substr(i, 1) == "1")
+        for (int i = 0; i < some_str.size() - 1; i++)
         {
-            count_ones++;
+            if (some_str.substr(i, 1) == "1")
+            {
+                count_ones++;
+            }
         }
-    }
 
-    if (count_ones % 2)
-    {
-        return "E";
-    } else
-    {
-        return "O";
-    }
+        if (count_ones % 2)
+        {
+            return 'E';
+        } else
+        {
+            return 'O';
+        }
+    }else { return '\0'; }
 }
 
 class LeftDigitMap

@@ -13,6 +13,7 @@
 
 int main(int argc, char *argv[])
 {
+    cv::VideoCapture camera(0);
     std::cout << "Bar Code Reader\nPress 'q' to quit\n";
 
     // Create windows
@@ -21,10 +22,11 @@ int main(int argc, char *argv[])
 
     // Get image from command line argument, load in color mode
     cv::Mat image_original, image_processed;
-    image_original = cv::imread(argv[1]);
+    image_original = cv::imread(argv[1], 1);
 
     while (true)
     {
+        // camera >> image_original;
         if (image_original.empty())
         {
             std::cout << "Could not access image...\n";
@@ -66,8 +68,8 @@ int main(int argc, char *argv[])
             }
         }
 
-        std::string zero, one;
         int bar_width = (end_col - start_col) / 3;
+        std::string zero, one;
         for (int i = 0; i < bar_width; i++)
         {
             zero.append("0");
@@ -121,7 +123,7 @@ int main(int argc, char *argv[])
                 bar_code_processed.append("1");
             }
         }
-
+        
         // number of digits you want to detect
         int n_bits = 7, n_digits = 6;
         std::string bar_code_result, parity;
@@ -132,9 +134,8 @@ int main(int argc, char *argv[])
         ParityMap parity_table;
         for (int i = 0; i < n_bits * n_digits; i += n_bits)
         {
-            std::string digit_in_binary = bar_code_processed.substr(i, 7);
+            std::string digit_in_binary = bar_code_processed.substr(i, n_bits);
             map_iterator                = left_digits_even.ld_map.find(digit_in_binary);
-
             // Search even parity table, and search odd parity table if need be
             if (map_iterator == left_digits_even.ld_map.end())
             {
@@ -143,10 +144,12 @@ int main(int argc, char *argv[])
             {
                 std::cout << "Left digit not found\n";
             }
+            
             // Determine first 7 digits of bar code
+            parity.push_back(parity_check(digit_in_binary));
             bar_code_result.append(map_iterator->second);
-            parity.append(parity_check(digit_in_binary));
         }
+
         // Search parity
         map_iterator = parity_table.p_map.find(parity);
         if (map_iterator == parity_table.p_map.end())

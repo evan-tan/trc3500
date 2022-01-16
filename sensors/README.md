@@ -4,7 +4,7 @@ Currently contains code for blob statistics.
 # How to use:
 In sensors/build run `cmake ..` then `make`.
 Then you can run either executable which is in the same folder
-NOTE: bar_code_reader is tested only on those 2 images in sensors/build
+__NOTE:_ bar_code_reader is tested only on those 2 images in sensors/build
 
 # Resources used
 ## blob_statistics
